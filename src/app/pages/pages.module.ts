@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PagesRoutingModule } from './pages-routing.module';
+import { SearchMedicineComponent } from './search-medicine/search-medicine.component';
 
 
 @NgModule({
@@ -8,6 +9,8 @@ import { PagesRoutingModule } from './pages-routing.module';
   ],
   declarations: [
 
+  
+    SearchMedicineComponent
   ]
 })
 export class PagesModule { }

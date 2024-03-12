@@ -1,34 +1,24 @@
 import { NgClass, NgFor, NgIf } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonService } from 'src/app/services/common.service';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+  selector: 'app-sidebar',
+  templateUrl: './sidebar.component.html',
+  styleUrls: ['./sidebar.component.scss'],
   standalone:true,
   imports: [NgClass, RouterLink, NgFor, NgIf],
 })
-export class HeaderComponent {
-
+export class SidebarComponent   {
+  static instance: SidebarComponent;
   constructor(
     public common: CommonService,
-    
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
-    
+    SidebarComponent.instance = this;
   }
-
-  searchIsVisible: boolean = false;
   isMobile: boolean = false;
-  isToggle: boolean = false;
-  hideInTab() {
-    this.searchIsVisible = !this.searchIsVisible;
-  }
-  toggleSidebar(){
-    console.log("work")
-    this.isToggle = !this.isToggle;
-  }
   menus=[
     {
       lable:"About",

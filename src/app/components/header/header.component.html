@@ -1,6 +1,6 @@
-<div class="p-3 fixed top-0 left-0 z-10 w-full bg-primary">
+<div class="p-3 fixed top-0 left-0 z-[999999] w-full bg-primary">
   <div class="grid gap-4 grid-cols-12">
-    <div class="md:col-span-3 col-span-6">
+    <div class="md:col-span-5 col-span-6">
       <div class="logos flex items-center">
         <img
           class="mx-2 w-[180px]"
@@ -14,9 +14,9 @@
         />
       </div>
     </div>
-    <div class="md:col-span-6 col-span-12 items-center">
+    <div class="md:col-span-4 col-span-12 items-center ">
       <div
-        class="rounded-full hidden lg:flex xl:max-w-[700px] w-full m-auto relative bg-white items-center justify-between"
+        class="rounded-full xl:flex hidden xl:max-w-[700px] w-full m-auto relative bg-white items-center justify-between"
       >
         <input
           #inputElement
@@ -66,7 +66,7 @@
       </div>
     </div>
     <div class="md:col-span-3 col-span-6 flex items-center justify-end">
-      <div class="list">
+      <div class="list"  class="hidden xl:block" *ngIf="!isMobile">
         <ul class="flex items-center">
           <li
             class="text-white text-lg px-2 cursor-pointer font-semibold"
@@ -76,6 +76,110 @@
           </li>
         </ul>
       </div>
+      
+      <div class="flex items-center">
+        <div class="xl:hidden block  mobile--sidebar-btn">
+          <button
+            type="button"
+            (click)="searchIsVisible = !searchIsVisible"
+            class="mr-3 bg-primary rounded-lg h-8 items-center justify-center w-8"
+          >
+            <i class="icon-[octicon--search-24] text-lg text-white"></i>
+          </button>
+        </div>
+        <div class="xl:hidden block side-bar">
+          <i (click)="common.toggle()"
+          
+            class="icon-[iconamoon--menu-burger-horizontal-light] first-letter: text-white
+             text-4xl"
+          >
+          </i>
+        </div>
+      </div>
     </div>
   </div>
+</div>
+
+<!-- mobile search bar -->
+<div class="mobile-search flex items-center"
+  [ngClass]="{ active: searchIsVisible }"
+>
+  <div class="overlay" (click)="hideInTab()"></div>
+  <div class="w-full">
+    <div
+      class="z-[111] absolute top-0 right-0 slide-content"
+      
+    >
+      <div id="bars" class="mt-[10px]">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+    </div>
+    <div
+      class="rounded-full lg:hidden md:flex xl:max-w-[700px] w-full m-auto relative bg-white items-center justify-between"
+    >
+      <input
+        #inputElement
+        class="w-[90%] p-[12px] border-none rounded-l-full"
+      
+        type="text"
+      
+       
+        placeholder="Search for medicines and health related issues"
+      />
+      <div
+        class="cross-icons absolute top-[calc(50%_-_16px)] right-[50px] flex items-center"
+      >
+        <i
+      
+          class="icon-[charm--cross] text-[30px] text-[#868686]"
+          
+        ></i>
+        <!-- <i class="icon-[charm--cross] text-[30px] text-[#868686]"></i> -->
+      </div>
+      <div
+        class="rounded-lg overflow-hidden bg-white max-h-[300px] overflow-y-auto absolute xl:right-[43px] top-[49px] xl:w-[93%] lg:right-[48px] lg:w-[88%] w-full shadow-class"
+       
+     
+      >
+        <ul class="pb-[48px]">
+          <li
+            class="hover:bg-gray-200 cursor-pointer text-sm p-3"
+            
+          >
+          medicine name goes here
+          </li>
+          <!-- <a [href]="'relevant-search/' + inputValue">
+            <label class="hover:bg-gray-200 cursor-pointer text-sm p-3">Show More</label>
+          </a> -->
+        </ul>
+      </div>
+      <div
+        class="rounded-r-full md:border-none border-l-[#D0D0D0] border-l-[1px] overflow-hidden absolute top-0 right-0 flex items-center"
+      >
+        <button
+       
+          class="flex items-center justify-center md:bg-none lg:bg-[#EBEBEB] w-[48px] h-[48px]"
+        >
+          <span
+            class="icon-[material-symbols--mic] text-2xl md:text-primary lg:text-[#868686]"
+            
+          ></span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="absolute md:top-[calc(50%_-_15px)] top-[calc(50%_-_12px)] right-[10px] flex items-center">
+    <button class="flex items-center justify-center rounded-full overflow-hidden bg-white w-[30px] h-[30px]">
+      <span class="icon-[material-symbols--mic] text-2xl text-primary"></span>
+    </button>
+  </div> -->
 </div>
