@@ -11,17 +11,30 @@ import { CommonService } from 'src/app/services/common.service';
   imports: [NgClass, RouterLink, NgFor, NgIf],
 })
 export class HeaderComponent {
-
-  constructor(
-    public common: CommonService,
-    
-  ) {
-    
-  }
-
   searchIsVisible: boolean = false;
   isMobile: boolean = false;
   isToggle: boolean = false;
+  slideState = false;
+   isDivVisible = false;
+   selectedIndex = -1;
+
+  constructor(public common: CommonService) {
+    
+  }
+  ngOnInit(): void {
+    window.addEventListener('resize', () => {
+      this.checkScreenWidth();
+    });
+  }
+  checkScreenWidth() {
+    if (!window) return;
+    this.isMobile = window.innerWidth <= 1270;
+  }
+
+  toggleSearchBar() {
+    this.searchIsVisible = !this.searchIsVisible;
+  }
+
   hideInTab() {
     this.searchIsVisible = !this.searchIsVisible;
   }
