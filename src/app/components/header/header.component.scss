@@ -1,0 +1,124 @@
+@import '../../../assets/css/mixins.scss';
+
+::ng-deep .mobile-search {
+    @include for-responsive($screen-tab){
+    z-index: 1111111;
+    min-height: 80px;
+    position: fixed;
+    top: -95px;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    transition: 0.3s;
+    &.active{
+      top:0px;
+      .overlay {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(0 0 0 / 43%);
+      }
+    }
+  }
+  .ng-autocomplete{
+    width: 93%;
+  }
+}
+
+li.selected::before {
+  color: #333;
+  font-weight: bold;
+}
+li.selected::before {
+  color: #333;
+  font-weight: bold;
+  margin-right: 8px;
+}
+li.selected {
+  background-color: #E6E6E6;
+}
+
+.shadow-class{
+  box-shadow: -1px 2px 11px 0px rgba(0, 0, 0, 0.1607843137);
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F1F1;
+}
+::-webkit-scrollbar-thumb {
+@apply bg-primary;
+}
+
+
+.last-item {
+  @apply text-primary; 
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1111;
+  width: 100%;
+  display: block;
+  background-color: #fff;
+}
+.slide-content {
+  width: 0;
+  height: 47px;
+  background-color: #fff;
+  overflow: hidden;
+  transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.open {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  background-color: #fff;
+  width: 100%;
+  @apply 2xl:w-[652px]  xl:w-[586px] lg:w-[417px] md:w-full ;
+  @include for-responsive($screen-tab){
+    position: absolute;
+    top: calc(50% - 23px);
+    right: 35px;
+  }
+}
+#bars {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bar {
+  background: $primary-color;
+  bottom: 1px;
+  height: 3px;
+  width: 4px;
+  margin: 0px 4px;
+  border-radius: 5px;
+  animation: sound 0ms -600ms linear infinite alternate;
+}
+
+@keyframes sound {
+  0% {
+     opacity: .35;
+      height: 3px; 
+  }
+  100% {
+      opacity: 1;       
+      height: 30px;        
+  }
+}
+
+.bar:nth-child(1)  { left: 1px; animation-duration: 474ms; }
+.bar:nth-child(2)  { left: 15px; animation-duration: 433ms; }
+.bar:nth-child(3)  { left: 29px; animation-duration: 407ms; }
+.bar:nth-child(4)  { left: 43px; animation-duration: 458ms; }
+.bar:nth-child(5)  { left: 57px; animation-duration: 400ms; }
+.bar:nth-child(6)  { left: 71px; animation-duration: 427ms; }
+.bar:nth-child(7)  { left: 85px; animation-duration: 441ms; }
+.bar:nth-child(8)  { left: 99px; animation-duration: 419ms; }
+.bar:nth-child(9)  { left: 113px; animation-duration: 487ms; }
+.bar:nth-child(10) { left: 127px; animation-duration: 442ms; }

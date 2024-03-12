@@ -1,4 +1,81 @@
-<div class="fixed top-0 left-0 z-[111111] h-[80px] w-full bg-primary">
-  asdasdasd
-
+<div class="p-3 fixed top-0 left-0 z-10 w-full bg-primary">
+  <div class="grid gap-4 grid-cols-12">
+    <div class="md:col-span-3 col-span-6">
+      <div class="logos flex items-center">
+        <img
+          class="mx-2 w-[180px]"
+          src="../../../assets/img/bhu.png"
+          alt="bhu.png"
+        />
+        <img
+          class="mx-2 w-[120px]"
+          src="../../../assets/img/new-white-logo.webp"
+          alt="bhu.png"
+        />
+      </div>
+    </div>
+    <div class="md:col-span-6 col-span-12 items-center">
+      <div
+        class="rounded-full hidden lg:flex xl:max-w-[700px] w-full m-auto relative bg-white items-center justify-between"
+      >
+        <input
+          #inputElement
+          class="w-[90%] p-[12px] border-none rounded-l-full"
+          type="text"
+          placeholder="Search for medicines and health related issues"
+        />
+        <div
+          class="cross-icons absolute top-[calc(50%_-_16px)] right-[50px] flex items-center"
+        >
+          <i class="icon-[charm--cross] text-[30px] text-[#868686]"></i>
+        </div>
+        <div
+          class="hidden absolute rounded-lg overflow-hidden bg-white max-h-[300px] overflow-y-auto xl:right-[43px] top-[49px] xl:w-[93%] lg:right-[48px] lg:w-[88%] shadow-class"
+        >
+          <ul class="max-h-[300px] overflow-hidden overflow-y-auto pb-[48px]">
+            <li class="hover:bg-gray-200 cursor-pointer text-sm p-3">
+              list name goes here
+            </li>
+          </ul>
+        </div>
+        <div
+          class="rounded-r-full overflow-hidden absolute top-0 right-0 flex items-center"
+        >
+          <div class="slide-content">
+            <div id="bars" class="mt-[10px]">
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+            </div>
+          </div>
+          <button
+            class="border-l-[#D0D0D0] border-l-[1px] flex items-center justify-center bg-[#EBEBEB] w-[48px] h-[48px]"
+          >
+            <span
+              class="icon-[material-symbols--mic] text-2xl text-[#868686]"
+            ></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="md:col-span-3 col-span-6 flex items-center justify-end">
+      <div class="list">
+        <ul class="flex items-center">
+          <li
+            class="text-white text-lg px-2 cursor-pointer font-semibold"
+            *ngFor="let i of menus"
+          >
+            <a href="">{{ i.lable }}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
